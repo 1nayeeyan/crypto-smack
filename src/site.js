@@ -1,3 +1,6 @@
+import getCoinList from './fetchCoinList';
+import addCoinToTable from './coinToTable';
+
 const content = document.getElementById('content');
 
 function coinTable() {
@@ -27,6 +30,9 @@ function coinTable() {
   table.appendChild(tableHead);
   table.appendChild(tableBody);
   tableContainer.appendChild(table);
+  const coinList = getCoinList();
+  console.log(coinList);
+  addCoinToTable(coinList);
   return tableContainer;
 }
 
