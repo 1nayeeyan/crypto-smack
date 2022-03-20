@@ -1,5 +1,4 @@
 import getCoinList from './fetchCoinList';
-import addCoinToTable from './coinToTable';
 
 const content = document.getElementById('content');
 
@@ -8,7 +7,7 @@ function coinTable() {
   tableContainer.classList.add('container');
 
   const table = document.createElement('table');
-  table.classList.add('table', 'table-striped');
+  table.classList.add('table', 'table-striped', 'table-dark', 'mt-5', 'table-bordered', 'table-hover');
 
   const tableHead = document.createElement('thead');
   tableHead.classList.add('thead-dark');
@@ -30,9 +29,7 @@ function coinTable() {
   table.appendChild(tableHead);
   table.appendChild(tableBody);
   tableContainer.appendChild(table);
-  const coinList = getCoinList();
-  console.log(coinList);
-  addCoinToTable(coinList);
+  getCoinList();
   return tableContainer;
 }
 

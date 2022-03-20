@@ -1,7 +1,28 @@
+function addCoinToTable(coinList) {
+  for (let i = 0; i < 10; i += 1) {
+    const List = document.getElementById('coin-list');
+    const row = document.createElement('tr');
+    let rank = coinList[i]['rank'];
+    let name = coinList[i]['name'];
+    let symbol = coinList[i]['symbol'];
+    row.innerHTML = `
+      <td>${rank}</td>
+      <td>${name}</td>
+      <td>${symbol}</td>
+      `;
+    List.appendChild(row);
+  }
+}
+
 async function getCoinList() {
   try {
-    const response = await fetch('https://coinlib.io/api/v1/coinlist?key=ae91246c432bdd5d&pref=USD&page=1&order=rank_asc');
-    const coinList = await response.json();
+    const response = await fetch('https://coinlib.io/api/v1/coinlist?key=ae91246c432bdd5d&pref=USD&page=1&order=rank_asc', { 
+      mode: 'cors',
+    });
+    const dataFetched = await response.json();
+    const coinList = await dataFetched.coins;
+    addCoinToTable(coinList);
+    console.log(coinList);
     return coinList;
   } catch (error) {
     console.log('err');
