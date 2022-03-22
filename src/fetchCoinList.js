@@ -7,13 +7,16 @@ function addCoinToTable(coinList) {
     let rank = coinList[i]['rank'];
     let name = coinList[i]['name'];
     let symbol = coinList[i]['symbol'];
+    row.classList.add('coins');
     row.setAttribute('id', symbol);
     row.innerHTML = `
       <td>${rank}</td>
       <td>${name}</td>
       <td>${symbol}</td>
       `;
-    row.addEventListener('mousedown', getCoinInfo(row), false);
+    row.addEventListener('click', () => {
+      getCoinInfo(row);
+    });
     List.appendChild(row);
   }
 }

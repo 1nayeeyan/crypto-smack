@@ -33,3 +33,71 @@ header h1{
     align-self: center;
 }
 
+main{
+    display: flex;
+    justify-content: center;
+}
+
+.container-md{
+    margin-top: 5em;
+    display: grid;
+    color: white;
+    min-width: 50rem;
+    width: 70rem;
+    max-width: 70rem;
+}
+
+.coin-header{
+    display: flex;
+    flex-direction: row;
+}
+
+.coin-header h2{
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+.coin-header p{
+    align-self: flex-end;
+    padding-left: 10px;
+}
+
+.coin-body{
+    display: grid;
+    grid-template-areas: 
+    'price price price right'
+    'price price price right'
+    'price price price right';
+}
+
+.body-left{
+    grid-area: price;
+}
+
+.body-right{
+    grid-area: right;
+    display: grid;
+    grid-template-areas:
+    'labels values'
+    'labels values'
+    'labels values';
+}
+
+.labels{
+    grid-area: labels;
+    padding: 0.5em;
+}
+
+.values{
+    grid-area: values;
+}
+
+.coin-body h1{
+    font-weight: 800;
+    font-size: 5rem;
+    padding-top: 10px;
+}
+
+.coin-body h2{
+    text-align: end;
+}
