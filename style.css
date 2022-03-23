@@ -1,0 +1,145 @@
+:root{
+    background-color: black;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', 'sans-serif';
+    height: fit-content;
+    width: 100%;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: blanchedalmond;
+    text-align: center;
+    height: 20em;
+}
+
+header h1{
+    font-size: 5em;
+    font-weight: bold;
+}
+
+.content{
+    background-color: black;
+    height: 100vh;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    background-color: black;
+    width: 100vh;
+    overflow: hidden;
+}
+
+.table{
+    min-width: 50rem;
+    width: 100%;
+    table-layout: fixed;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+
+.container-md{
+    margin-top: 5em;
+    display: grid;
+    color: white;
+    min-width: 50rem;
+    width: 70rem;
+    max-width: 70rem;
+}
+
+.coin-header{
+    display: flex;
+    flex-direction: row;
+}
+
+.coin-header h2{
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+.coin-header p{
+    align-self: flex-end;
+    padding-left: 10px;
+}
+
+.coin-body{
+    display: grid;
+    grid-template-areas: 
+    'price price price right'
+    'price price price right'
+    'price price price right';
+}
+
+.body-left{
+    grid-area: price;
+}
+
+.body-right{
+    grid-area: right;
+    display: grid;
+    grid-template-areas:
+    'labels values'
+    'labels values'
+    'labels values';
+}
+
+.labels{
+    grid-area: labels;
+    padding: 0.5em;
+}
+
+.values{
+    grid-area: values;
+}
+
+.coin-body h1{
+    font-weight: 800;
+    font-size: 5rem;
+    padding-top: 10px;
+}
+
+.coin-body h2{
+    text-align: end;
+}
+
+.coin-footer{
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.right-footer h3{
+    text-align: end;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blanchedalmond;
+    position: fixed;
+    overflow: hidden;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+footer a{
+    color: black;
+    font-weight: 500;
+    font-size: 1em;
+}
