@@ -13,10 +13,11 @@ async function coinData(symbol) {
 
 function createMain() {
   const content = document.getElementById('content');
+  const container = document.querySelector('.container');
   const main = document.createElement('main');
   main.classList.add('main');
   main.setAttribute('id', 'main');
-  content.appendChild(main);
+  content.insertBefore(main, container);
   return main;
 }
 
@@ -24,6 +25,15 @@ function clearMain() {
   const content = document.getElementById('content');
   const main = document.getElementById('main');
   return content.removeChild(main);
+}
+
+function deltaCheck(deltaNum, delta) {
+  if (deltaNum >= 0) {
+    delta.setAttribute('style', 'color: green');
+  } else {
+    delta.setAttribute('style', 'color: red');
+  }
+  return delta;
 }
 
 function makeCoin(coinFetched) {
@@ -60,10 +70,12 @@ function makeCoin(coinFetched) {
   values.classList.add('values');
 
   const deltaLabel = document.createElement('h3');
-  deltaLabel.textContent = '24H%';
+  deltaLabel.textContent = '24H %';
   labels.appendChild(deltaLabel);
   const delta = document.createElement('h2');
   delta.textContent = coinFetched.delta_24h;
+  const deltaNum = parseFloat(delta.textContent);
+  deltaCheck(deltaNum, delta);
   values.appendChild(delta);
   const lowLabel = document.createElement('h3');
   lowLabel.textContent = '24H Low';
@@ -83,12 +95,24 @@ function makeCoin(coinFetched) {
 
   const coinFooter = document.createElement('div');
   coinFooter.classList.add('coin-footer');
+  const leftFooter = document.createElement('div');
+  leftFooter.classList.add('left-footer');
+  const marketCapLabel = document.createElement('h3');
+  marketCapLabel.textContent = 'Market Cap';
   const marketCap = document.createElement('h2');
   marketCap.textContent = dollarSymbol.concat(parseFloat(coinFetched.market_cap).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  leftFooter.appendChild(marketCapLabel);
+  leftFooter.appendChild(marketCap);
+  const rightFooter = document.createElement('div');
+  rightFooter.classList.add('right-footer');
+  const volumeLabel = document.createElement('h3');
+  volumeLabel.textContent = '24H Volume';
   const volume = document.createElement('h2');
   volume.textContent = dollarSymbol.concat(parseFloat(coinFetched.total_volume_24h).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  coinFooter.appendChild(marketCap);
-  coinFooter.appendChild(volume);
+  rightFooter.appendChild(volumeLabel);
+  rightFooter.appendChild(volume);
+  coinFooter.appendChild(leftFooter);
+  coinFooter.appendChild(rightFooter);
 
   coinDiv.appendChild(coinHeader);
   coinDiv.appendChild(coinBody);

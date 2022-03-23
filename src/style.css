@@ -1,7 +1,12 @@
+:root{
+    background-color: black;
+}
+
 body{
     display: flex;
     flex-direction: column;
     font-family: 'Segoe UI', 'sans-serif';
+    height: fit-content;
     width: 100%;
 }
 
@@ -27,15 +32,22 @@ header h1{
 .container{
     display: flex;
     flex-direction: column;
-    min-width: 50rem;
-    width: 70rem;
-    max-width: 70rem;
     align-self: center;
+    background-color: black;
+    width: 100vh;
+    overflow: hidden;
+}
+
+.table{
+    min-width: 50rem;
+    width: 100%;
+    table-layout: fixed;
 }
 
 main{
     display: flex;
     justify-content: center;
+    background-color: black;
 }
 
 .container-md{
@@ -100,4 +112,34 @@ main{
 
 .coin-body h2{
     text-align: end;
+}
+
+.coin-footer{
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.right-footer h3{
+    text-align: end;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blanchedalmond;
+    position: fixed;
+    overflow: hidden;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+footer a{
+    color: black;
+    font-weight: 500;
+    font-size: 1em;
 }

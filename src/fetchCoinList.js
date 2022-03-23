@@ -1,7 +1,7 @@
 import getCoinInfo from './coinInfo';
 
 function addCoinToTable(coinList) {
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < 20; i += 1) {
     const List = document.getElementById('coin-list');
     const row = document.createElement('tr');
     let rank = coinList[i]['rank'];

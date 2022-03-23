@@ -41,8 +41,8 @@ function createMain() {
 }
 
 function initializeSite() {
-  content.appendChild(coinTable());
   content.appendChild(createMain());
+  content.appendChild(coinTable());
 }
 
 export default initializeSite;
